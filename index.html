@@ -908,11 +908,43 @@ Enjoy your day to the fullest! 🎂🥳🎈
   </ul>
 </section>
 
-<footer>
-  <div class="footer-title">🎉 Bòn Fèt, Joseph Sherline!</div>
-  <p class="footer-sign">
-    Mèsi paske ou fè jounen sa a tounen yon bèl okazyon pou selebre. Mwen swete ou pase yon anivèsè ekstraòdinè ak yon ane ki chaje ak lajwa, siksè, ak benediksyon.
-  </p>
+<footer style="overflow:hidden; padding:3rem 0; text-align:center; background:#0a0908;">
+  <style>
+    .footer-marquee-track{
+      display:flex;
+      width:max-content;
+      animation:footerScroll 18s linear infinite;
+    }
+    .footer-marquee-track span{
+      display:inline-block;
+      white-space:nowrap;
+      padding:0 3rem;
+      font-family:'Playfair Display', serif;
+      color:#e4cd9a;
+    }
+    .footer-marquee-track .ft-title{
+      font-weight:700;
+      font-style:italic;
+      font-size:1.8rem;
+    }
+    .footer-marquee-track .ft-text{
+      font-size:1rem;
+      font-weight:400;
+      color:#f2ead9;
+      max-width:none;
+    }
+    @keyframes footerScroll{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+  </style>
+
+  <div class="footer-marquee-track">
+    <span class="ft-title">🎉 Bòn Fèt, Joseph Sherline!</span>
+    <span class="ft-text">Mèsi paske ou fè jounen sa a tounen yon bèl okazyon pou selebre. Mwen swete ou pase yon anivèsè ekstraòdinè ak yon ane ki chaje ak lajwa, siksè, ak benediksyon.</span>
+    <span class="ft-title">🎉 Bòn Fèt, Joseph Sherline!</span>
+    <span class="ft-text">Mèsi paske ou fè jounen sa a tounen yon bèl okazyon pou selebre. Mwen swete ou pase yon anivèsè ekstraòdinè ak yon ane ki chaje ak lajwa, siksè, ak benediksyon.</span>
+  </div>
 </footer>
 
 <script>
