@@ -241,9 +241,35 @@
   }
 
   .cake-wrap{
+    position:relative;
     display:flex;
     justify-content:center;
     margin:3rem 0 2.5rem;
+  }
+
+  /* Bouncing indicator arrow pointing at the candle */
+  .pointer-arrow{
+    position:absolute;
+    top:-38px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1.8rem;
+    line-height:1;
+    color:var(--gold-soft);
+    text-shadow:0 0 12px rgba(200,166,104,0.5);
+    z-index:6;
+    pointer-events:none;
+    animation:pointerBounce 1s ease-in-out infinite;
+    transition:opacity 0.5s ease;
+  }
+
+  .pointer-arrow.hide{
+    opacity:0;
+  }
+
+  @keyframes pointerBounce{
+    0%, 100%{ transform:translateX(-50%) translateY(0); }
+    50%{ transform:translateX(-50%) translateY(10px); }
   }
 
   .cake{
@@ -874,6 +900,7 @@ Have an amazing birthday! 🎈🎁✨
   </div>
 
   <div class="cake-wrap">
+    <div class="pointer-arrow" id="pointerArrow">⬇️</div>
     <div class="cake">
       <div class="candle" id="candle">
         <div class="flame"></div>
@@ -968,6 +995,7 @@ Have an amazing birthday! 🎈🎁✨
   const hint = document.getElementById('candleHint');
   const note = document.getElementById('wishNote');
   const shoutBanner = document.getElementById('shoutBanner');
+  const pointerArrow = document.getElementById('pointerArrow');
   let lit = false;
 
   // Unlocks the AudioContext and the speech-synthesis engine. Must be
@@ -1001,6 +1029,7 @@ Have an amazing birthday! 🎈🎁✨
     unlockAudio();
     candle.classList.add('lit');
     hint.textContent = 'Fè yon souhait...';
+    pointerArrow.classList.add('hide');
 
     // Both of these are called RIGHT NOW, synchronously, inside the
     // click — required by strict mobile browsers (iOS in particular),
